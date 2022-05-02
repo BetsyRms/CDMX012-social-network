@@ -1,0 +1,108 @@
+body{
+  margin: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+.logInDiv{
+  position: relative;
+  background-color: #023E8A;
+  box-shadow: inset 4px 4px 34px 12px rgba(3, 4, 94, 0.62);
+  width: 375px;
+  height: 667px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.homeDiv{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #131313;
+  box-shadow: inset 4px 4px 34px 12px #000000;
+  background-size: cover;
+  width: 375px;
+  height: 667px;
+}
+h1{
+  color: #B5B5B5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+h2{
+  color: #FFFFFF;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+}
+.buttomElement{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 280px;
+  top: 287px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+}
+.google{
+  width: 50px;
+  background-color: #fff;
+  border-radius: 30px;
+}
+.buttomLogin{
+  position: absolute;
+  width: 53px;
+  height: 53px;
+  left: 162px;
+  top: 395px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 30px;
+}
+.postDiv{
+  background-color: #023E8A;
+  box-shadow: inset 4px 4px 34px 12px rgba(3, 4, 94, 0.62);
+  width: 375px;
+  height: 667px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+}
+.logo{
+  width: 100px;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 375px;
+  height: 48px;
+  background-color: #03045E;
+}
+.water{
+  margin-right: 34px;
+  width: 30px;
+  height: 27.43px;
+}
+.logOut{
+  background-color: rgba(255, 255, 255, 0);
+  width: 64px;
+  height: 21px;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+  color: #FFFFFF;
+}
