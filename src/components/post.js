@@ -1,3 +1,4 @@
+import { exit } from "../lib/auth.js";
 import { onNavigate } from "../main.js";
 
 export const post =()=>{
@@ -17,8 +18,13 @@ export const post =()=>{
     logOut.className = 'logOut'
     logOut.textContent = 'Log out'
     logOut.addEventListener('click', () => {
-    onNavigate('/');
-  });
+      exit().then(()=>{
+        console.log('fuera')
+      })
+      .catch(()=>{
+        console.log('error');
+      })
+    });
   header.append(water, logo, logOut);
   postDiv.append(header, nodoH1);
   return postDiv;

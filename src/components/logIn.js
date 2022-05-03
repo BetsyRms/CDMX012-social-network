@@ -1,3 +1,4 @@
+import { loginGoogle } from "../lib/auth.js";
 import { onNavigate } from "../main.js";
 
 export const logIn =()=>{
@@ -16,7 +17,8 @@ export const logIn =()=>{
 
   const buttomLogin = document.createElement('button');
     buttomLogin.className = 'buttomLogin'
-    buttomLogin.addEventListener('click', ()=>{
+    buttomLogin.addEventListener('click', (e)=>{
+     loginGoogle();
       onNavigate('/post');
     });
 
