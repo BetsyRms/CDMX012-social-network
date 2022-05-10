@@ -1,5 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyB3FlX-VGJy_bLWpNdkLUtgBAlFF7whkE8",
@@ -13,6 +15,7 @@ const firebaseConfig = {
   initializeApp(firebaseConfig);
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
+
   export const loginGoogle = ()=>{
     signInWithPopup(auth, provider)
     .then((result) => {
@@ -26,8 +29,15 @@ const firebaseConfig = {
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
   }
-  export const exit = ()=>signOut(getAuth());
+
+export const exit = ()=>signOut(getAuth());
   
+const db = getFirestore();
+
+export const createPost = async (text)=> {
+  await addDoc(collection(db, 'post'), {text})
+  console.log(text);
+}
  
   
   

@@ -31,6 +31,7 @@ const routes = {
   let component = routes[window.location.pathname];
 
   rootDiv.append(component());
+  
 onAuthStateChanged(getAuth(), (user)=>{
 if(user){
   onNavigate('/post');

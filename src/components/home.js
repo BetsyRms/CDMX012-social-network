@@ -10,11 +10,11 @@ export const home =()=>{
   const nodoH1 = document.createElement('h1');
     nodoH1.textContent = 'Choice your element'
 
-  const buttomElement = document.createElement('button');
-    buttomElement.className = 'buttomElement'
-    buttomElement.addEventListener('click', () => {
+  const buttonElement = document.createElement('button');
+    buttonElement.className = 'buttonElement'
+    buttonElement.addEventListener('click', () => {
       onNavigate('/logIn');
     })
-  homeDiv.append(logo, nodoH1, buttomElement);
+  homeDiv.append(logo, nodoH1, buttonElement);
   return homeDiv;
 }

@@ -15,13 +15,13 @@ export const logIn =()=>{
     google.className = 'google'
     google.src = 'Google-Icon.png'
 
-  const buttomLogin = document.createElement('button');
-    buttomLogin.className = 'buttomLogin'
-    buttomLogin.addEventListener('click', (e)=>{
+  const buttonLogin = document.createElement('button');
+    buttonLogin.className = 'buttonLogin'
+    buttonLogin.addEventListener('click', (e)=>{
      loginGoogle();
       onNavigate('/post');
     });
 
-  logInDiv.append(logo, textH2, buttomLogin, google);
+  logInDiv.append(logo, textH2, buttonLogin, google);
   return logInDiv;
 }
