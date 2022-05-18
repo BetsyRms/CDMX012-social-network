@@ -10,6 +10,9 @@ export const listPost=()=>{
 
   // trae post de firebase
   onSnapshot(q, (querySnapshot) => {
+    while(div.firstChild){
+      div.removeChild(div.firstChild);
+    }
     const notes = [];
     querySnapshot.forEach((doc) => {
         notes.push(doc.data().text);

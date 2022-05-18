@@ -41,7 +41,6 @@ export const post =()=>{
         buttonPost.addEventListener('click', ()=>{
           createPost(inputPost.value).then(()=>{
             inputPost.value = '';
-            location.reload();
           }).catch(()=>{
             console.log('no se guardó');
           })

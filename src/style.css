@@ -128,7 +128,7 @@ p{
   border: 1px solid #0096C7;
   box-sizing: border-box;
   border-radius: 5px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 ::placeholder {
   color: rgba(0, 150, 199, 0.5);
@@ -136,7 +136,7 @@ p{
   text-align: start;
 }
 .buttonPost{
-  position: absolute;
+  /* position: absolute; */
   width: 48px;
   height: 21px;
   left: 287px;
