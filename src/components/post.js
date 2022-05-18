@@ -1,6 +1,7 @@
 import { exit } from "../lib/auth.js";
-import {createPost} from "../lib/auth.js"
-import { divPost } from "./listPost.js";
+import { onNavigate } from "../main.js";
+import { createPost } from "../lib/auth.js";
+import { listPost } from "./listPost.js";
 
 export const post =()=>{
   const postDiv = document.createElement('div');
@@ -19,13 +20,14 @@ export const post =()=>{
         logOut.textContent = 'Log out'
         logOut.addEventListener('click', () => {
           exit().then(()=>{
-          console.log('fuera')
+            console.log('fuera');
+            onNavigate('/');
           })
           .catch(()=>{
             console.log('error');
           })
         });
-
+      
     const nodoH3 = document.createElement('h3');
        nodoH3.textContent = 'Hi, water-bender!';
       
@@ -39,16 +41,14 @@ export const post =()=>{
         buttonPost.addEventListener('click', ()=>{
           createPost(inputPost.value).then(()=>{
             inputPost.value = '';
+            location.reload();
           }).catch(()=>{
             console.log('no se guardó');
           })
-
         });
     
-    const divMuro = document.createElement('div');
-      divMuro.className = 'divMuro'
-    
+  
   header.append(water, logo, logOut);
-  postDiv.append(header, nodoH3, inputPost, buttonPost, divMuro, divPost());
+  postDiv.append(header, nodoH3, inputPost, buttonPost, listPost() );
   return postDiv;
 }

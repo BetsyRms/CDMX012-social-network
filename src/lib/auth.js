@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
-import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
-
+import { getFirestore, collection, addDoc, getDocs,  } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB3FlX-VGJy_bLWpNdkLUtgBAlFF7whkE8",
@@ -32,12 +31,14 @@ const firebaseConfig = {
 
 export const exit = ()=>signOut(getAuth());
   
-const db = getFirestore();
+export const db = getFirestore();
 
+// crea el post en firestore
 export const createPost = async (text)=> {
-  await addDoc(collection(db, 'post'), {text})
+  await addDoc(collection(db, 'text'), {text})
   console.log(text);
 }
- 
+
+export const getPost = () => getDocs(collection(db, 'text'));
   
   
