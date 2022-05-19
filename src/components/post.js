@@ -31,7 +31,7 @@ export const post =()=>{
     const nodoH3 = document.createElement('h3');
        nodoH3.textContent = 'Hi, water-bender!';
       
-    const inputPost = document.createElement('input');
+    const inputPost = document.createElement('textarea');
        inputPost.className = 'inputPost'
        inputPost.placeholder = 'Create your post'
 
