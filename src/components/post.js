@@ -1,7 +1,7 @@
 import { exit } from "../lib/auth.js";
-import { onNavigate } from "../main.js";
 import { createPost } from "../lib/auth.js";
 import { listPost } from "./listPost.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
 export const post =()=>{
   const postDiv = document.createElement('div');
@@ -20,11 +20,7 @@ export const post =()=>{
         logOut.textContent = 'Log out'
         logOut.addEventListener('click', () => {
           exit().then(()=>{
-            console.log('fuera');
-            onNavigate('/');
-          })
-          .catch(()=>{
-            console.log('error');
+            console.log('bye');
           })
         });
       
@@ -40,7 +36,10 @@ export const post =()=>{
         buttonPost.textContent = 'Post'
         buttonPost.addEventListener('click', ()=>{
           createPost(inputPost.value).then(()=>{
-            inputPost.value = '';
+            inputPost.value = ''
+            // if(inputPost.value === ''){
+
+            // }
           }).catch(()=>{
             console.log('no se guardó');
           })

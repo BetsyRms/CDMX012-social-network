@@ -165,3 +165,21 @@ p{
   border: 1px solid #0096C7;
   border-radius: 5px;
 }
+.delate{
+  width: 10px;
+  height: 10px;
+}
+.div1{
+  /* border-top-style: 1px solid #0096C7;; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.divPrueba{
+  border-top-style: solid;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-right-style: none;
+  border-top-color:#0096C7;
+  /* margin-bottom: 10px;   */
+}

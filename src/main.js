@@ -1,6 +1,7 @@
 import {home} from './components/home.js'
 import {logIn} from './components/logIn.js'
 import {post} from './components/post.js'
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
 const rootDiv = document.getElementById('root');
 
@@ -27,5 +28,13 @@ export const onNavigate = (pathname) =>{
   }
 
   let component = routes[window.location.pathname];
+
+  onAuthStateChanged(getAuth(), (user) => {
+    if (user) {
+      onNavigate('/post');
+    } else {
+      onNavigate('/');
+    }
+  });
 
   rootDiv.append(component());

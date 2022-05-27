@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs,  } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB3FlX-VGJy_bLWpNdkLUtgBAlFF7whkE8",
@@ -13,7 +13,7 @@ const firebaseConfig = {
 
   initializeApp(firebaseConfig);
   const provider = new GoogleAuthProvider();
-  const auth = getAuth();
+  export const auth = getAuth();
 
   export const loginGoogle = ()=>{
     signInWithPopup(auth, provider)
@@ -21,6 +21,7 @@ const firebaseConfig = {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      console.log(user);
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -29,16 +30,20 @@ const firebaseConfig = {
     });
   }
 
-export const exit = ()=>signOut(getAuth());
+export const exit = ()=>signOut(auth)
   
 export const db = getFirestore();
 
 // crea el post en firestore
 export const createPost = async (text)=> {
-  await addDoc(collection(db, 'text'), {text})
+  await addDoc(collection(db, 'text'), {text, email: auth.currentUser.email})
   console.log(text);
 }
-
 export const getPost = () => getDocs(collection(db, 'text'));
-  
-  
+
+export const delatePost = async (id)=>{
+  await deleteDoc(doc(db, "text", id));
+  console.log({id})
+}
+
+
