@@ -1,5 +1,5 @@
+
 import { loginGoogle } from "../lib/auth.js";
-import { onNavigate } from "../main.js";
 
 export const logIn =()=>{
   const logInDiv = document.createElement('div');
@@ -18,10 +18,9 @@ export const logIn =()=>{
   const buttonLogin = document.createElement('button');
     buttonLogin.className = 'buttonLogin'
     buttonLogin.addEventListener('click', (e)=>{
-     loginGoogle();
-      onNavigate('/post');
+      loginGoogle()
     });
-
+    
   logInDiv.append(logo, textH2, buttonLogin, google);
   return logInDiv;
 }
