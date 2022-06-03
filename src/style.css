@@ -5,8 +5,6 @@ body{
   justify-content: center;
   align-items: center;
   }
-  @media only screen and (min-width: 768px) {
-  }
 .logInDiv{
   position: relative;
   background-color: #023E8A;
@@ -78,7 +76,7 @@ p{
   background-color: rgba(255, 255, 255, 0);
   border-radius: 30px;
 }
-.postDiv{
+.container{
   position: relative;
   background-color: #023E8A;
   box-shadow: inset 4px 4px 34px 12px rgba(3, 4, 94, 0.62);
@@ -119,7 +117,17 @@ p{
   font-size: 10px;
   color: #FFFFFF;
 }
+.logOut:hover{
+  background: #FFFFFF;
+  color: #03045E;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 17px;
+}
 .inputPost{
+  min-height: 54px;
   width: 312px;
   height: 54px;
   left: 25px;
@@ -129,7 +137,8 @@ p{
   box-sizing: border-box;
   border-radius: 5px;
   resize: none;
-  /* margin-bottom: 50px; */
+  margin-bottom: 5px;
+  color: #fff;
 }
 ::placeholder {
   color: rgba(0, 150, 199, 0.5);
@@ -137,49 +146,72 @@ p{
   text-align: start;
 }
 .buttonPost{
-  /* position: absolute; */
   width: 48px;
   height: 21px;
-  left: 287px;
-  top: 170px;
   border: 1px solid #FFFFFF;
   box-sizing: border-box;
   box-shadow: 2px 2px 3px 1px #FFFFFF;
   border-radius: 6px;
   background-color: #03055e00;
 
-  font-family: 'verdana';
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 550;
   font-size: 12px;
   color: #FFFFFF;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 300ms ease;
 }
-.divPost{
-  box-sizing: border-box;
-
-  width: 312px;
-  height: 2px;
-  left: 25px;
-  top: 582px;
-
-  background: rgba(3, 4, 94, 0.6);
-  border: 1px solid #0096C7;
-  border-radius: 5px;
+.buttonPost:hover{
+  background: #FFFFFF;
+  border-radius: 6px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 17px;
+  color: #03045E;
+  box-shadow: none;
 }
-.delate{
-  width: 10px;
-  height: 10px;
+.btnDelate{
+  background: none;
+  border-style: none;
 }
-.div1{
-  /* border-top-style: 1px solid #0096C7;; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.divPrueba{
+.post{
   border-top-style: solid;
   border-left-style: none;
   border-bottom-style: none;
   border-right-style: none;
   border-top-color:#0096C7;
-  /* margin-bottom: 10px;   */
+}
+.imgDelate{
+  width: 12px;
+  height: 12px;
+}
+.userName{
+  font-weight: 700;
+}
+.headerPost{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.waterPost{
+  margin: 10px 10px 10px 0px;
+  width: 20px;
+  height: 18px;
+}
+.sectionPosts{
+  overflow: scroll;
+  width: 80%;
+  margin-bottom: 40px;
+}
+.space{
+  width: 12px;
+  height: 12px;
+}
+.userWater{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }

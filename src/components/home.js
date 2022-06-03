@@ -18,11 +18,3 @@ export const home =()=>{
   homeDiv.append(logo, nodoH1, buttonElement);
   return homeDiv;
 }
-
-// let arr = [[2,5,6],[3,2,9],[1,3,5]];
-
-// for (let i=0; i<arr.length; i++){
-//   for(let x=0; x<arr[i].length; x++){
-//     console.log(x);
-//   } 
-// }

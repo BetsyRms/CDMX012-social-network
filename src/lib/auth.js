@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, Timestamp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB3FlX-VGJy_bLWpNdkLUtgBAlFF7whkE8",
@@ -36,8 +36,8 @@ export const db = getFirestore();
 
 // crea el post en firestore
 export const createPost = async (text)=> {
-  await addDoc(collection(db, 'text'), {text, email: auth.currentUser.email})
-  console.log(text);
+  await addDoc(collection(db, 'text'), {text, email: auth.currentUser.email, name: auth.currentUser.displayName, day: Timestamp.now()})
+  // console.log(auth.currentUser);
 }
 export const getPost = () => getDocs(collection(db, 'text'));
 

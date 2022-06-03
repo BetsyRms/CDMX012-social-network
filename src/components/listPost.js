@@ -1,35 +1,61 @@
 import { db, delatePost, auth } from '../lib/auth.js'
-import { collection, query, onSnapshot } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import { collection, query, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
 
 export const listPost=()=>{
 
-  const div = document.createElement('div')
-  const q = query(collection(db, "text"));
+  const sectionPosts = document.createElement('section')
+  sectionPosts.className = 'sectionPosts'
+  const q = query(collection(db, "text"), orderBy('day', 'desc'));
 
   // trae post de firebase
   onSnapshot(q, (querySnapshot) => {
-    while(div.firstChild){
-      div.removeChild(div.firstChild);
+    while(sectionPosts.firstChild){
+      sectionPosts.removeChild(sectionPosts.firstChild);
     }
     querySnapshot.forEach((doc) => {
-      const divPost = document.createElement('div');
-        divPost.className = 'divPrueba'
-      const email = document.createElement('p')
-        email.textContent = doc.data().email
+      console.log(doc.data())
+      const post = document.createElement('section');
+        post.className = 'post'
+
+      const headerPost = document.createElement('section')
+        headerPost.className = 'headerPost'
+
+      const userWater = document.createElement('section')
+        userWater.className = 'userWater'
+
+      const water = document.createElement('img')
+        water.src = './components/water.png'
+        water.className = 'waterPost'
+
+      const userName = document.createElement('p')
+        userName.textContent = doc.data().name
+        userName.className = 'userName'
+
       const texto = document.createElement('p')
         texto.textContent = doc.data().text
+
       const imgDelate = document.createElement('img');
-        imgDelate.src = 'https://img.icons8.com/external-outline-astudio/32/000f/external-delete-office-stuff-outline-astudio.png'   
+        imgDelate.src = './components/delate.png'
+        imgDelate.className = 'imgDelate'
+
       const btnDelate = document.createElement('button');
         btnDelate.value = doc.id
         btnDelate.className = 'btnDelate'
+
+      const space = document.createElement('div')
+        space.className
         btnDelate.append(imgDelate);
-        console.log(auth.currentUser.email)   
-      divPost.append(email, texto);
-      if(auth.currentUser.email === doc.data().email){
-        divPost.append(btnDelate)
-      }
-      div.append(divPost);
+
+      userWater.append(water, userName)
+      headerPost.append(userWater)
+        if(auth.currentUser.email === doc.data().email){
+          headerPost.append(btnDelate)
+        }else{
+          headerPost.append(space)
+        }
+    
+      post.append(headerPost, texto);
+      sectionPosts.append(post);
     });
     const arrayDelate = document.querySelectorAll('.btnDelate')
       arrayDelate.forEach((button)=>{
@@ -39,5 +65,5 @@ export const listPost=()=>{
       })
     console.log({arrayDelate});
   });
-return div
+return sectionPosts
 }
