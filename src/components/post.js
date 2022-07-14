@@ -1,11 +1,10 @@
 import { exit } from "../lib/auth.js";
 import { createPost } from "../lib/auth.js";
 import { listPost } from "./listPost.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
 export const post =()=>{
-  const postDiv = document.createElement('div');
-    postDiv.className = 'postDiv'
+  const container = document.createElement('section');
+    container.className = 'container'
 
     const header = document.createElement('div');
       header.className = 'header'
@@ -14,13 +13,13 @@ export const post =()=>{
         logo.src = 'E-bender.png'
       const water = document.createElement('img');
         water.className = 'water';
-        water.src = 'water.png'
+        water.src = '/components/water.png'
       const logOut = document.createElement('button');
         logOut.className = 'logOut'
         logOut.textContent = 'Log out'
         logOut.addEventListener('click', () => {
           exit().then(()=>{
-            console.log('bye');
+            console.log('out');
           })
         });
       
@@ -35,18 +34,18 @@ export const post =()=>{
         buttonPost.className = 'buttonPost'
         buttonPost.textContent = 'Post'
         buttonPost.addEventListener('click', ()=>{
-          createPost(inputPost.value).then(()=>{
-            inputPost.value = ''
-            // if(inputPost.value === ''){
-
-            // }
-          }).catch(()=>{
-            console.log('no se guardó');
-          })
+          if(inputPost.value !== ''){
+            createPost(inputPost.value).then(()=>{
+              inputPost.value = ''
+              // console.log(createPost());
+            }).catch(()=>{
+              console.log('no se guardó');
+            })
+          }
         });
     
   
   header.append(water, logo, logOut);
-  postDiv.append(header, nodoH3, inputPost, buttonPost, listPost() );
-  return postDiv;
+  container.append(header, nodoH3, inputPost, buttonPost, listPost() );
+  return container;
 }
