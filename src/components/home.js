@@ -15,6 +15,7 @@ export const home =()=>{
     buttonElement.addEventListener('click', () => {
       onNavigate('/logIn');
     })
+    
   homeDiv.append(logo, nodoH1, buttonElement);
   return homeDiv;
 }

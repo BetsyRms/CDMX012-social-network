@@ -202,9 +202,12 @@ p{
   height: 18px;
 }
 .sectionPosts{
-  /* overflow: scroll; */
+  overflow: auto;
   width: 80%;
   margin-bottom: 40px;
+}
+.sectionPosts::-webkit-scrollbar{
+  width: 7px;
 }
 .space{
   width: 12px;
